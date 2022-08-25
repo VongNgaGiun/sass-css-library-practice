@@ -1,0 +1,19 @@
+// variables and functions
+@import '_functions.scss';
+@import '_variables.scss';//檔名前面加'_'，telling sass this is just a partial which we might use elsewhere but we don't want it compiling
+
+// base and layout
+@import '_base.scss';
+@import '_breakpoints.scss';
+@import '_grid.scss';
+
+//colors
+@import '_colors.scss';
+
+//components (button, card, navbar)
+@import 'components/_card.scss';
+@import 'components/_button.scss';
+@import 'components/_navbar.scss';
+
+//utilities (margin, padding, opacity)
+@import '_utilities.scss';

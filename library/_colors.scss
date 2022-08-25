@@ -1,0 +1,57 @@
+//cycle through the $colors map and for each key-value pair inside the map
+//$key and $val variables are local variables
+@each $key, $val in $colors{
+	//cycling through each color and generating classes
+	.text-#{$key}{
+		color:$val;
+	}
+
+	.text-hover-#{$key}{
+		&:hover{
+			color: $val;
+		}
+	}
+
+	.bg-#{$key}{
+		background-color: $val;
+	}
+
+	@if($val!=black and $val!=white){//排除如text-white-light-9這類的class
+		//light variations
+		//$i is local variable
+		//(a bit lighter)1-9(lightest)
+		@for $i from 1 through 9{
+			//for each color now we're cycling 9 times in this for loop, so we can generate a light variation class nine times(different strength)
+			.text-#{$key}-light-#{$i}{
+				color: mix(white, $val, $i*10);//mix function can mix color together. the third argument is basically how much we want to mix it in some kind of percent
+			}
+
+			.text-hover-#{$key}-light-#{$i}{
+				&:hover{
+					color: mix(white, $val, $i*10);
+				}
+			}
+
+			.bg-#{$key}-light-#{$i}{
+				background-color: mix(white, $val, $i*10);
+			}
+		}
+
+		//dark variation
+		@for $i from 1 through 9{
+			.text-#{$key}-dark-#{$i}{
+				color: mix(black, $val, $i*10);
+			}
+
+			.text-hover-#{$key}-dark-#{$i}{
+				&:hover{
+					color: mix(black, $val, $i*10);
+				}
+			}
+
+			.bg-#{$key}-dark-#{$i}{
+				background-color: mix(black, $val, $i*10);
+			}
+		}
+	}
+}

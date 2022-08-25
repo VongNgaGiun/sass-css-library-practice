@@ -1,0 +1,32 @@
+%flex-layout{//%: when we don't need a rule to be output to the final css, you can change '.' into '#'
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+}
+
+//difference between extend and mixin
+//we don't pass arguments when we are using extend (if you need arguments you'd use a mixin)
+//how they compile into css: extend→bunch together and comma separated; mixin→all have their own separate rules with the properties duplicate
+.navbar{
+	@extend %flex-layout;
+	padding: $base-padding $base-padding*2;
+	box-sizing: $base-box-shadow;
+
+	.site-title{
+		font-size: $font-size-lg;
+	}
+
+	.container{
+		@extend %flex-layout;
+	}
+}
+
+//color variations of the navbar
+@each $key, $val in $colors{
+	.navbar-#{$key}{
+		@extend .navbar;
+		background-color: $val;
+	}
+}

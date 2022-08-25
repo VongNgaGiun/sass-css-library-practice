@@ -1,0 +1,49 @@
+//variables
+//theme colors
+$primary:#326dee;
+$secondary:#1ac888;
+$error:#d32752;
+$info:#f6c31c;
+
+//color palette
+//map: a collection that has key-value pair
+$colors:(
+	'primary':$primary,
+	'secondary':$secondary,
+	'error':$error,
+	'info':$info,
+	'blue':#1919e6,
+	'red':#e61919,
+	'yellow':#e6e619,
+	'green':#19e635,
+	'orange':#ffa600,
+	'purple':#9900ff,
+	'gray':#808080,
+	'black':black,
+	'white':white,
+);
+
+//map-get(): get a value from map
+@debug map-get($colors,'purple');//#9900ff
+@debug map-has-key($colors,'secondary');//true
+@debug map-has-key($colors,'tertiary');//false
+@debug map-remove($colors,'primary');//("secondary": #1ac888, "error": #d32752, "info": #f6c31c, "blue": #1919e6, "red": #e61919, "yellow": #e6e619, "green": #19e635, "orange": #ffa600, "purple": #9900ff, "gray": #808080, "black": black, "white": white)
+@debug map-merge($colors,('pink':#ffc0cb));//("secondary": #1ac888, "error": #d32752, "info": #f6c31c, "blue": #1919e6, "red", "blue": #1919e6, "red": #e61919, "yellow": #e6e619, "green": #19e635, "orange": #ffa600, "purple": #9900ff, "gray": #808080, "black": black, "white": white, "pink": #ffc0cb)
+
+//spacing
+$base-padding:0.75rem;
+$base-margin:0.75rem;
+
+//borders
+$base-border-thickness:1px;
+$base-border-radius:20px;
+
+//box-shadow
+$base-box-shadow:1px 3px 5px rgba(0,0,0,0.1);
+
+//font-sizes
+$base-font-size:1rem;
+$font-size-sm:$base-font-size*0.75;
+$font-size-lg:$base-font-size*1.5;
+$font-size-xl:$base-font-size*2;
+$font-size-xxl:$base-font-size*3
